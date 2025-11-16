@@ -11,7 +11,7 @@ function Hero() {
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <Link to="/reservations" className="hero-button">
+        <Link to="/reservations" className="hero-button" aria-label="On Click: Reserve a Table">
           Reserve a Table
         </Link>
       </div>

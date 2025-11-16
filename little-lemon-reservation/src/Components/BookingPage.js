@@ -4,7 +4,7 @@ import BookingForm from './BookingForm';
 // Step 3: Accept submitForm as a prop
 function BookingPage({ availableTimes, dispatch, submitForm }) {
   return (
-    <div className="booking-page">
+    <section className="booking-page">
       <h2>Book a Table</h2>
       
       {/* Step 3: Pass the prop down */}
@@ -13,7 +13,7 @@ function BookingPage({ availableTimes, dispatch, submitForm }) {
         dispatch={dispatch}
         submitForm={submitForm}
       />
-    </div>
+    </section>
   );
 }
 

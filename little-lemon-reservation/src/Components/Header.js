@@ -10,7 +10,9 @@ function Header() {
     <header className="header">
       <div className="header-content">
         <div className="logo-title">
+          <Link to="/" aria-label="Navigate to Little Lemon homepage">
           <img src={logoImage} alt="Little Lemon logo" className="logo" />
+          </Link>
           {/* <h1>Little Lemon</h1> */}
         </div>
         <nav className="nav">

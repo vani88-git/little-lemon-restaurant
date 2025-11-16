@@ -1,8 +1,6 @@
 import React from 'react';
-
-// When you have real images, you will import them here
-// import image1 from '../assets/about-image-1.jpg';
-// import image2 from '../assets/about-image-2.jpg';
+import restaurantImage from '../assets/restaurant.jpg'; // Adjust path if needed
+import chefsImage from '../assets/chefs.jpg';           // Adjust path if needed
 
 function About() {
   return (
@@ -20,15 +18,19 @@ function About() {
           sint. Velit officia consequat duis enim velit mollit.
         </p>
       </div>
-      <div className="about-right">
-        {/* Placeholder divs to match the wireframe. */}
-        <div className="about-image-placeholder about-image-1"></div>
-        <div className="about-image-placeholder about-image-2"></div>
 
-        {/* Once you have real images, replace the divs above with this:
-          <img src={image1} alt="Restaurant interior" className="about-image-1" />
-          <img src={image2} alt="Restaurant food" className="about-image-2" />
-        */}
+      <div className="about-right">
+        {/* Use <img> tags with your imported images */}
+        <img 
+          src={restaurantImage} 
+          alt="Little Lemon restaurant interior" 
+          className="about-image about-image-2" 
+        />
+        <img 
+          src={chefsImage} 
+          alt="Two Little Lemon chefs cooking" 
+          className="about-image about-image-1" 
+        />
       </div>
     </section>
   );

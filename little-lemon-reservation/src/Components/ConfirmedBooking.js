@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Import Link
 
 function ConfirmedBooking() {
   return (
-    <div className="confirmation-page">
+    <section className="confirmation-page">
       <h2>Booking Confirmed!</h2>
       <p>Thank you for your reservation. We look forward to seeing you!</p>
       
@@ -11,7 +11,7 @@ function ConfirmedBooking() {
       <Link to="/" className="hero-button">
         Back to Home
       </Link>
-    </div>
+    </section>
   );
 }
 

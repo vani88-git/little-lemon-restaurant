@@ -312,17 +312,14 @@ nav ul li a:hover {
 }
 
 /* --- About Section --- */
+/* --- About Section --- */
 .about {
   padding: 60px 40px;
-  background-color: #FFFBF5; /* Same light beige as testimonials */
-  
-  /* Use flex to align text and images */
+  background-color: #FFFBF5; 
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  
-  /* Center the content */
   max-width: var(--grid-max-width);
   margin: 0 auto;
 }
@@ -334,14 +331,14 @@ nav ul li a:hover {
 
 .about-left h1 {
   font-size: 48px;
-  color: #333; /* Dark text from Figma */
+  color: #333;
   margin-bottom: 0;
   line-height: 1;
 }
 
 .about-left h2 {
   font-size: 32px;
-  color: #494949; /* Dark grey from Figma */
+  color: #494949;
   margin-bottom: 20px;
   font-weight: normal;
 }
@@ -356,18 +353,19 @@ nav ul li a:hover {
 .about-right {
   flex: 1;
   max-width: 450px;
-  height: 400px; /* Give the container height */
-  position: relative; /* Anchor for the images */
+  height: 400px; 
+  position: relative; 
 }
 
-/* This styles the placeholder divs to look like the wireframe */
-.about-image-placeholder {
-  border: 2px dashed #494949;
-  background-color: #edefee;
-  position: absolute;
-  box-sizing: border-box; /* Include border in size */
-  width: 250px;
-  height: 250px;
+/* --- UPDATED IMAGE STYLES --- */
+.about-image {
+  position: absolute; 
+  box-sizing: border-box; 
+  width: 250px;        /* Small size */
+  height: 250px;       /* Small size */
+  object-fit: cover;   /* Ensure image covers the area */
+  border-radius: 16px; /* Curved edges (adjust value for more/less curve) */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional: add a subtle shadow */
 }
 
 .about-image-1 {
@@ -378,11 +376,11 @@ nav ul li a:hover {
 
 .about-image-2 {
   top: 100px;
-  right: 100px; /* This creates the overlap */
-  z-index: 5; /* This sits behind the first image */
+  right: 100px; 
+  z-index: 5;
 }
-
 /* --- Footer --- */
+
 .footer {
   background-color: #333;
   color: #fff;
@@ -391,18 +389,30 @@ nav ul li a:hover {
   justify-content: center;
 }
 
+/* This is the main flex container */
 .footer-content {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between; /* <-- This is the main fix */
+  align-items: flex-start;       
   flex-wrap: wrap;
   width: 100%;
   max-width: var(--grid-max-width);
-  gap: 30px;
+  gap: 30px; 
 }
 
+/* Style for the logo "column" */
+.footer-logo {
+  height: 120px;
+  width: auto;
+  /* Removed flex: 1 and min-width to stop distortion */
+}
+
+/* We removed the .footer-links rule */
+
+/* This style for the text columns */
 .footer-column {
-  flex: 1;
-  min-width: 200px;
+  flex: 1; 
+  min-width: 150px;
 }
 
 .footer-column h4 {
@@ -430,8 +440,6 @@ nav ul li a:hover {
 .footer-column ul li a:hover {
   color: #f4ce14;
 }
-
-/* --- Booking Page & Form --- */
 
 /* --- Booking Page & Form --- */
 

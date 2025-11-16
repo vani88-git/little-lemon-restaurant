@@ -83,8 +83,9 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       <input
         type="submit"
         value="Make Your reservation"
-        disabled={!getIsFormValid()} // --- Step 2 (React Validation) ---
-      />
+        disabled={!getIsFormValid()}
+        aria-label="On Click: Make Your reservation"
+    />
     </form>
   );
 }
