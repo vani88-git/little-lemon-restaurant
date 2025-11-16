@@ -1,5 +1,6 @@
 import React from 'react';
-import heroImage from '../assets/appetizers.jpg'; // Confirm this path
+import heroImage from '../assets/appetizers.jpg';
+import { Link } from 'react-router-dom'; // <-- Import Link
 
 function Hero() {
   return (
@@ -10,7 +11,9 @@ function Hero() {
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <button className="hero-button">Reserve a Table</button>
+        <Link to="/reservations" className="hero-button">
+          Reserve a Table
+        </Link>
       </div>
       <div className="hero-right">
         <img src={heroImage} alt="Appetizers" />
