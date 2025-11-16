@@ -1,46 +1,51 @@
 import React, { useState } from 'react';
 
-function BookingForm() {
+// Step 1: Accept props from BookingPage
+function BookingForm({ availableTimes, dispatch }) {
+  // State for form fields (except times) remains here
   const [date, setDate] = useState("");
-  //  <-- We will initialize time to an empty string -->
-  const [time, setTime] = useState(""); 
+  const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("Birthday");
 
-  const [availableTimes, setAvailableTimes] = useState([
-    "17:00", "18:00", "19:00", "20:00", "21:00", "22:00",
-  ]);
+  // Step 1: Remove the old availableTimes state
+  // const [availableTimes, setAvailableTimes] = useState([...]); // <-- This is GONE
+
+  // Step 2: Create a change handler for the date
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+    setDate(selectedDate);    // Update the local date state
+    dispatch(selectedDate); // Dispatch the selected date (the 'action')
+  };
 
   return (
     <form className="booking-form">
-      {/* ... Date, Guests, Occasion fields ... */}
       
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
         id="res-date"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        // Step 2: Use the new handler
+        onChange={handleDateChange} 
       />
 
-      {/* --- TIME FIELD FIX --- */}
       <label htmlFor="res-time">Choose time</label>
       <select
         id="res-time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
       >
-        {/* --- ADD THIS PLACEHOLDER OPTION --- */}
         <option value="" disabled>Select a Time</option>
         
-        {/* This part remains the same */}
+        {/* Step 1: Use availableTimes from props */}
         {availableTimes.map((timeOption) => (
           <option key={timeOption} value={timeOption}>
             {timeOption}
           </option>
         ))}
       </select>
-      
+
       <label htmlFor="guests">Number of guests</label>
       <input
         type="number"
