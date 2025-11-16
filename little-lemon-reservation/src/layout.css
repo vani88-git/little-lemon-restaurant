@@ -494,3 +494,25 @@ nav ul li a:hover {
 .booking-form input[type="submit"]:hover {
   background-color: #e3bd0f;
 }
+
+/* --- Confirmation Page --- */
+.confirmation-page {
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding: 60px 40px;
+  text-align: center; /* Center all the text */
+}
+
+.confirmation-page h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.confirmation-page p {
+  font-size: 18px;
+  font-family: 'Karla', sans-serif;
+  margin-bottom: 30px;
+}
+
+/* We can reuse the .hero-button style for the link! */

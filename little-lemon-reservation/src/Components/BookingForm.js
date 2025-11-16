@@ -1,33 +1,44 @@
 import React, { useState } from 'react';
 
-// Step 1: Accept props from BookingPage
-function BookingForm({ availableTimes, dispatch }) {
-  // State for form fields (except times) remains here
+// Step 3: Accept submitForm as a prop
+function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("Birthday");
 
-  // Step 1: Remove the old availableTimes state
-  // const [availableTimes, setAvailableTimes] = useState([...]); // <-- This is GONE
-
-  // Step 2: Create a change handler for the date
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
-    setDate(selectedDate);    // Update the local date state
-    dispatch(selectedDate); // Dispatch the selected date (the 'action')
+    setDate(selectedDate);
+    dispatch(selectedDate); // Dispatch the date to update times
+  };
+
+  // Step 3: Create the handleSubmit function
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
+    
+    // Gather all form data
+    const formData = {
+      date,
+      time,
+      guests,
+      occasion,
+    };
+    
+    // Call the submitForm function from props
+    submitForm(formData);
   };
 
   return (
-    <form className="booking-form">
+    // Step 3: Add the onSubmit handler to the form
+    <form className="booking-form" onSubmit={handleSubmit}>
       
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
         id="res-date"
         value={date}
-        // Step 2: Use the new handler
-        onChange={handleDateChange} 
+        onChange={handleDateChange}
       />
 
       <label htmlFor="res-time">Choose time</label>
@@ -37,8 +48,6 @@ function BookingForm({ availableTimes, dispatch }) {
         onChange={(e) => setTime(e.target.value)}
       >
         <option value="" disabled>Select a Time</option>
-        
-        {/* Step 1: Use availableTimes from props */}
         {availableTimes.map((timeOption) => (
           <option key={timeOption} value={timeOption}>
             {timeOption}
