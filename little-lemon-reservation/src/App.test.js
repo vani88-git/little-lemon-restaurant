@@ -1,14 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import BookingForm from './Components/BookingForm';
+import { initializeTimes, updateTimes } from './utils.js';
 
-// Import functions from the NEW utils.js file
-import { initializeTimes, updateTimes } from './utils.js'; 
-
-// --- Step 1: Test for static text in BookingForm ---
-
+// --- Test 1: BookingForm Renders ---
 test('Renders the "Choose date" label in BookingForm', () => {
   const mockAvailableTimes = ["17:00"];
-  const mockDispatch = jest.fn(); 
+  const mockDispatch = jest.fn();
 
   render(<BookingForm availableTimes={mockAvailableTimes} dispatch={mockDispatch} />);
   
@@ -18,22 +15,28 @@ test('Renders the "Choose date" label in BookingForm', () => {
 });
 
 
-// --- Step 2: Test the reducer functions ---
+/* --- THIS IS THE NEW LIST WE EXPECT FROM OUR MOCK API --- */
+const expectedTimes = [
+  "17:00", "17:30", "18:00", "18:30", "19:00", "19:30",
+];
 
-test('initializeTimes function returns a non-empty array', () => {
+
+// --- Test 2: initializeTimes Function (Updated) ---
+test('initializeTimes function returns the correct times from our mock API', () => {
   const times = initializeTimes();
   
-  expect(Array.isArray(times)).toBe(true);
-  expect(times.length).toBeGreaterThanOrEqual(0);
+  // Check that the returned times match our mock data
+  expect(times).toEqual(expectedTimes);
 });
 
-test('updateTimes function returns the correct times for a future date', () => {
+
+// --- Test 3: updateTimes Function (Updated) ---
+test('updateTimes function returns the correct times from our mock API', () => {
   const currentState = []; 
-  const action = "2025-11-30"; // A future date
+  const action = "2025-11-30"; // Any date
   
   const newTimes = updateTimes(currentState, action);
   
-  const expectedTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-  
+  // Check that the returned times match our mock data
   expect(newTimes).toEqual(expectedTimes);
 });
